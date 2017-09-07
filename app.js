@@ -4,6 +4,8 @@ const app         = express ();
 const bodyParser  = require ( 'body-parser' );
 const serveStatic = require ( 'serve-static' );
 
+const port = process.env.PORT || 3080;
+
 const { indexOf, cloneDeep, flatMap, words, forEach } = require ( 'lodash' );
 
 const { dict } = require ( './spellcheck/spellcheck' );
@@ -208,6 +210,6 @@ app.post ( '/api/spellcheck-page', ( req, res ) => {
     
 } );
 
-app.listen ( 3080, function () {
-    console.log ( 'Example app listening on port 3080!' )
+app.listen ( port, () => {
+    console.log ( `Example app listening on port ${port}!` )
 } );
